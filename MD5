@@ -1,6 +1,6 @@
-fa2b9b50ee20ac9c9dd2220a3999b174 *DESCRIPTION
+2e009057f48c1fa56ccd3d88cc1a44f0 *DESCRIPTION
 808d380b45c1a53b08ceed802276388f *NAMESPACE
-f2a06b151d3be06160b0ccff93b9bbbd *NEWS.md
+4d4ae777c69c3c19ac7db037090dfb67 *NEWS.md
 d7c438e8f85eb32b9a331697a9c94de2 *R/RcppExports.R
 306720b21c72fa61aedf330173fee7b4 *R/VeccTMVN.R
 c5b1f74058527c632a95914cf86be907 *R/X_psi_samp_Cpp.R
@@ -30,10 +30,10 @@ e045fe433d6781f206114f8316e69717 *man/get_sp_inv_chol.Rd
 e6db058e70578ac0a257dda0465d0e33 *man/loglk_censor_MVN.Rd
 e275e8682eddcb9b1d1c29d4c7874897 *man/mvrandn.Rd
 a7f37ca5fb0064ba376663dd9de251e1 *man/mvrandt.Rd
-4efeb6c1d4fff107e3ca6298967a897a *man/pmvn.Rd
-1f0090a5b83cf15b4b64005d97cc7720 *man/pmvn_MLMC.Rd
-acb4afdfce6aa80786ddbf7f63c910a7 *man/pmvt.Rd
-4161340615a91f8c52171424a8f1fdd8 *man/pmvt_MLMC.Rd
+c556c2587de47ce0c372dae3b00d2a0f *man/pmvn.Rd
+8edb4a30a68867c7b45a3def56aa2b13 *man/pmvn_MLMC.Rd
+4a382802da7aab83d74cc06c2943004e *man/pmvt.Rd
+5fa12f06212f5504848301091af2cbf7 *man/pmvt_MLMC.Rd
 b61ac5a136dfe29fedd79bd1a0a8acca *man/ptmvrandn.Rd
 2a5f72cf564392f6cc09351f4a328e35 *man/univar_order.Rd
 e62585629948e7dd143efbad43c2a6eb *src/Makevars
