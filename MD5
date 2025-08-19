@@ -1,6 +1,6 @@
-ea47b426dc92af4af1bc41064ddda5e7 *DESCRIPTION
+3e2e6fe62d08ccb671b6200318a2ba62 *DESCRIPTION
 808d380b45c1a53b08ceed802276388f *NAMESPACE
-044caa2b4d6bb13b68b6073ecc62309b *NEWS.md
+8c5ea30d0f76d7e05e05bd1a336ac6eb *NEWS.md
 d7c438e8f85eb32b9a331697a9c94de2 *R/RcppExports.R
 306720b21c72fa61aedf330173fee7b4 *R/VeccTMVN.R
 c5b1f74058527c632a95914cf86be907 *R/X_psi_samp_Cpp.R
@@ -9,7 +9,7 @@ a7db2d9352593c8cbf6c43d3c9a55b71 *R/gradpsi.R
 1e17ba4567577aeced3401b87cfa27a1 *R/gradpsi_sp.R
 e0e15837ded74c35f5aa24afd763c714 *R/inv_chol.R
 acfa44ac3c394f0b417b58b1de21c1b9 *R/loglk_censor_MVN.R
-d095f759ee731473eac0dc65904f7404 *R/mvnrnd_cwrap.R
+03b8b10b54180af3100bb597b0fca321 *R/mvnrnd_cwrap.R
 c38c3e6ae75f6b03671f16c21760e809 *R/mvtrnd_cwrap.R
 3250e8f29669748ae71544e0a9b436ea *R/nleqsv.R
 6f8a22e1fa4fbdef7cc1f5d85a0603cc *R/pmvn.R
@@ -17,8 +17,8 @@ c38c3e6ae75f6b03671f16c21760e809 *R/mvtrnd_cwrap.R
 02c0b1c15948b482b1f9cfa95db2f40a *R/pmvt.R
 985c77f6768ea42609dc51d019a95297 *R/pmvt_MLMC.R
 4a414438a516e717b20791d0d402dbc0 *R/reorder.R
-0df80f164fde3d4674b31241753983ee *R/rnd_TMVN.R
-1faa30c219ceafae67db58c8cb246b09 *R/rnd_TMVT.R
+c47e8c61adf9225610dcd99f9effe0d4 *R/rnd_TMVN.R
+15b0bae33d00da8ada4ac2fc1f861e73 *R/rnd_TMVT.R
 a4adc51632ed150d86374a29119fec24 *R/rnd_part_TMVN.R
 84ce503eea1996dcaecfcfcf1554b01e *R/utils.R
 62daa9ab36895a3ddeb3d149145ffb42 *R/vecc_cond_mean_var.R
