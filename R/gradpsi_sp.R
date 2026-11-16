@@ -60,12 +60,17 @@ HInv22_mul <- function(veccCondMeanVarObj, dPsi, D, V, S, x) {
 # and we don't need to know the value of x_n anyways
 grad_jacprod_jacsolv_idea5 <- function(xAndBeta, veccCondMeanVarObj, a, b,
                                        retJac = FALSE, retProd = TRUE, retSolv = TRUE,
-                                       VAdj = TRUE, verbose = TRUE, mu = rep(0, length(a))) {
+                                       VAdj = TRUE, verbose = TRUE,
+                                       condMeanContrib = rep(0, length(a))) {
   n <- length(a)
   x <- xAndBeta[1:n]
   beta <- xAndBeta[(n + 1):(2 * n)]
   D <- sqrt(veccCondMeanVarObj$cond_var)
-  mu_c <- as.vector(veccCondMeanVarObj$A %*% (x - mu)) + mu
+  # `condMeanContrib` is the contribution to each conditional mean from the
+  #   conditioning variables outside x (e.g., the observed neighbors in
+  #   loglk_censor_MVN), matching the C++ psi and samplers:
+  #   mu_c[i] = condMeanContrib[i] + sum_j A[i, j] * x[j]
+  mu_c <- as.vector(veccCondMeanVarObj$A %*% x) + condMeanContrib
   a_tilde_shift <- (a - mu_c) / D - beta
   b_tilde_shift <- (b - mu_c) / D - beta
   log_diff_cdf <- TruncatedNormal::lnNpr(a_tilde_shift, b_tilde_shift)
@@ -237,13 +242,15 @@ psi_wrapper <- function(x, beta, veccCondMeanVarObj, NN, a, b,
 }
 
 # Computed dpsi/dx
-# The inputs `x`, `beta`, `a`, `b`, and `mu` should be of the same length
+# The inputs `x`, `beta`, `a`, `b`, and `condMeanContrib` should be of the
+#   same length. `condMeanContrib` is the contribution to each conditional mean
+#   from the conditioning variables outside x (see grad_jacprod_jacsolv_idea5)
 # This function is used for finding optimal (argmax) `x` given beta
 # This function is intended to be used inside `mvnrnd_wrap`
-dpsi_dx <- function(x, beta, veccCondMeanVarObj, NN, a, b, mu) {
+dpsi_dx <- function(x, beta, veccCondMeanVarObj, NN, a, b, condMeanContrib) {
   n <- length(a)
   D <- sqrt(veccCondMeanVarObj$cond_var)
-  mu_c <- as.vector(veccCondMeanVarObj$A %*% (x - mu)) + mu
+  mu_c <- as.vector(veccCondMeanVarObj$A %*% x) + condMeanContrib
   a_tilde_shift <- (a - mu_c) / D - beta
   b_tilde_shift <- (b - mu_c) / D - beta
   log_diff_cdf <- TruncatedNormal::lnNpr(a_tilde_shift, b_tilde_shift)
@@ -308,7 +315,7 @@ dpsi_dx <- function(x, beta, veccCondMeanVarObj, NN, a, b, mu) {
 #   jac_ds <- jac_idea5(x0_demean, vecc_cond_mean_var_obj, a_ord_demean, b_ord_demean)
 #   solve_obj <- grad_jacprod_jacsolv_idea5(x0_padded, vecc_cond_mean_var_obj,
 #                                           a_ord, b_ord,
-#                                           retJac = TRUE, mu = mu_ord
+#                                           retJac = TRUE, condMeanContrib = mu_ord
 #   )
 #   cat("grad error: ", sum(abs(grad_ds - solve_obj$grad[-c(n, 2 * n)])), "\n")
 #   cat(

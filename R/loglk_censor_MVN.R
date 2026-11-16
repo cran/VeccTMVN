@@ -104,7 +104,7 @@ loglk_censor_MVN <- function(locs, indCensor, y, bCensor,
     },
     method = "L-BFGS-B",
     veccCondMeanVarObj = vecc_obj_censor,
-    a = a, b = b, mu = cond_mean, verbose = verbose,
+    a = a, b = b, condMeanContrib = cond_mean, verbose = verbose,
     lower = c(a, rep(-Inf, n)), upper = c(b, rep(Inf, n)),
     control = list(maxit = 500)
   )

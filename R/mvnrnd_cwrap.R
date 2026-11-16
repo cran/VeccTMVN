@@ -27,7 +27,7 @@ mvnrnd_wrap <- function(a, b, mu, NN, veccObj, N, verbose = 0) {
     },
     method = "BFGS",
     veccCondMeanVarObj = veccObj,
-    a = a, b = b, mu = mu, verbose = verbose,
+    a = a, b = b, condMeanContrib = mu, verbose = verbose,
     control = list(maxit = 1500, abstol = 1e-6)
   )
   cat("Gradient norm at the optimal beta is", 
